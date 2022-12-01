@@ -4,7 +4,7 @@ import { useContext } from "react";
 import { PeopleContext } from "../context/people";
 
 const Card = () => {
-  const { people, isLoading, imgUrl, setLoading } = useContext(PeopleContext);
+  const { people, isLoading, imgUrl } = useContext(PeopleContext);
   const currentPerson = people[people.length - 1] || {
     name: "",
     birth_year: "",

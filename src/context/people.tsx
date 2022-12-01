@@ -17,7 +17,6 @@ interface Context {
   isLoading: boolean;
   imgUrl: string;
   getData: () => void;
-  setLoading: (isLoading: boolean) => void;
 }
 
 export const PeopleContext = React.createContext<Context>({
@@ -25,7 +24,6 @@ export const PeopleContext = React.createContext<Context>({
   isLoading: false,
   imgUrl: "",
   getData: () => {},
-  setLoading: () => {},
 });
 
 export const PeopleContextProvider: React.FC<Props> = (props) => {
@@ -76,7 +74,6 @@ export const PeopleContextProvider: React.FC<Props> = (props) => {
     isLoading,
     imgUrl,
     getData,
-    setLoading,
   };
 
   return (
