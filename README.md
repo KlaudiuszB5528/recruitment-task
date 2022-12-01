@@ -15,7 +15,7 @@ My solution to the recruitment task
 1. Clone the repo
 
    ```sh
-   git clone https://github.com/KlaudiuszB5528/Portfolio.git
+   https://github.com/KlaudiuszB5528/recruitment-task.git
    ```
 
 2. Install NPM packages
