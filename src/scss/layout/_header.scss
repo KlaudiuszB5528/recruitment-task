@@ -1,0 +1,52 @@
+@use "../abstracts/variables" as *;
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+
+  h1 {
+    font-family: $font-lato;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 3rem;
+    line-height: 100%;
+  }
+}
+
+.registration-btn {
+  position: relative;
+  background-color: $dark-green;
+  font-weight: bold;
+  font-family: $font-lato;
+  font-style: italic;
+  color: white;
+  font-size: 3rem;
+  line-height: 3rem;
+  box-shadow: 10px 4px 4px rgba(0, 0, 0, 0.75);
+  border-radius: 2rem;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  width: min(100%, 23.6rem);
+  height: 9rem;
+  &:hover {
+    background-color: darken($dark-green, 4%);
+  }
+}
+
+.registration-btn-text {
+  position: absolute;
+  top: 50%;
+  left: 53%;
+  transform: translate(-50%, -50%);
+  letter-spacing: -0.1rem;
+  text-align: left;
+  text-decoration: none;
+  -webkit-text-stroke: 1px #d9d9d9;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  &:visited,
+  &:active {
+    color: white;
+  }
+}

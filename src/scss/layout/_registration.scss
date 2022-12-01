@@ -1,0 +1,41 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+.registration-page {
+  width: 100%;
+  height: 100%;
+  @include displayFlexCentered();
+  padding-top: 10rem;
+  font-family: "Inter";
+
+  .registration {
+    width: min(100% - 3rem, 89.7rem);
+    margin-inline: auto;
+    height: min(100% - 4rem, 64.6rem);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    align-items: center;
+    h1 {
+      width: 100%;
+      font-style: normal;
+      font-weight: 800;
+      font-size: 2rem;
+      line-height: 165%;
+      display: flex;
+      justify-content: right;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #000000;
+    }
+
+    .blue-line {
+      align-self: flex-end;
+      width: 16.6rem;
+      height: 0.93rem;
+      background-color: $blue;
+    }
+  }
+}

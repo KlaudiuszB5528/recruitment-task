@@ -1,0 +1,150 @@
+@use "../abstracts/animations" as *;
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+.homepage {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 1.1rem 2.1rem;
+}
+
+.card {
+  min-height: 74rem;
+  width: min(100% - 2rem, 80rem);
+  margin-inline: auto;
+  background-color: $card;
+  filter: drop-shadow(1.2rem 0.4rem 0.4rem rgba(0, 0, 0, 0.6));
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 5rem 0 0 5rem;
+  @media only screen and (max-width: 420px) {
+    padding: 4rem 1rem 0 1rem;
+  }
+  gap: 2.7rem;
+  border-radius: 50rem 6rem 30rem 10rem;
+
+  & &-name-container {
+    width: 53.4rem;
+    @media only screen and (max-width: 700px) {
+      width: 47rem;
+    }
+    @media only screen and (max-width: 500px) {
+      width: 40rem;
+    }
+
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    line-height: 6.1rem;
+    .card-icons {
+      height: 3.5rem;
+      width: 5rem;
+      @media only screen and (max-width: 500px) {
+        height: 2.8rem;
+        width: 4rem;
+      }
+      display: flex;
+      justify-content: flex-end;
+      gap: 1rem;
+    }
+    .card-name {
+      width: 100%;
+      padding-left: 0.5rem;
+      text-align: center;
+      font-family: $font-inter;
+      font-style: normal;
+      font-weight: 800;
+      font-size: 3.5rem;
+
+      @media only screen and (max-width: 700px) {
+        margin-right: 2.5rem;
+      }
+      @media only screen and (max-width: 500px) {
+        font-size: 3rem;
+        padding-left: 0;
+      }
+      @media only screen and (max-width: 380px) {
+        font-size: 2.8rem;
+        margin-right: 0;
+      }
+    }
+  }
+
+  &-details {
+    width: min(75%, 37rem);
+    display: flex;
+    flex-direction: column;
+    font-family: $font-inter;
+    font-style: italic;
+    text-align: left;
+    font-weight: 100;
+    font-size: 2rem;
+    line-height: 2.4rem;
+  }
+
+  .img-container {
+    max-width: 53.4rem;
+    height: 38.3rem;
+
+    @media only screen and (max-width: 700px) {
+      max-width: 47rem;
+      height: 33.3rem;
+    }
+
+    @media only screen and (max-width: 500px) {
+      max-width: 40rem;
+      height: 28.3rem;
+    }
+
+    @media only screen and (max-width: 420px) {
+      height: 25.3rem;
+    }
+
+    .card-img {
+      border-radius: 20rem 2rem 10rem 5rem;
+      width: 100%;
+    }
+  }
+}
+
+.loader {
+  height: 8rem;
+  width: 8rem;
+  border-radius: 50%;
+  border: 7px solid black;
+  border-top-color: $light-green;
+  animation: loader 1.2s linear infinite;
+}
+
+.next-profile-btn-container {
+  @include displayFlexCentered();
+  width: min(100% - 2rem, 80rem);
+  margin-inline: auto;
+
+  .next-profile-btn {
+    cursor: pointer;
+    font-family: $font-lato;
+    background-color: $green;
+    width: min(45%, 22.4rem);
+    height: 5.5rem;
+    box-shadow: 10px 4px 4px rgba(0, 0, 0, 0.75);
+    border-radius: 2rem;
+    border: none;
+    outline: none;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 3rem;
+    line-height: 100%;
+    text-align: center;
+    color: #ffffff;
+    -webkit-text-stroke: 1px #d9d9d9;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+    &:hover {
+      background-color: darken($green, 5%);
+    }
+  }
+}
