@@ -16,7 +16,11 @@ const CardContent = (props: Props) => {
   return (
     <>
       <div className="img-container">
-        <img src={imgUrl} alt="person" className="card-img" />
+        {imgUrl !== "" ? (
+          <img src={imgUrl} alt="person" className="card-img" />
+        ) : (
+          <p className="error">Nie udało się wczytać obrazu</p>
+        )}
       </div>
       <div className="card-name-container">
         <h2 className="card-name">{name}</h2>

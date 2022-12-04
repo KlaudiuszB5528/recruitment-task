@@ -26,6 +26,14 @@
   gap: 2.7rem;
   border-radius: 50rem 6rem 30rem 10rem;
 
+  .error {
+    width: 100%;
+    height: 100%;
+    font-size: 3rem;
+    display: flex;
+    place-items: center;
+  }
+
   & &-name-container {
     width: 53.4rem;
     @media only screen and (max-width: 700px) {

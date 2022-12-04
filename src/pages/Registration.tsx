@@ -1,6 +1,8 @@
 import Form from "../components/Form";
+import { useNavigate } from "react-router-dom";
 
 const Registration = () => {
+  const navigate = useNavigate();
   return (
     <div className="registration-page">
       <div className="registration">
@@ -8,6 +10,10 @@ const Registration = () => {
         <div className="blue-line"></div>
         <Form />
       </div>
+      <div
+        className="backhome-btn"
+        onClick={() => navigate("/recruitment-task")}
+      ></div>
     </div>
   );
 };

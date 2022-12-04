@@ -1,3 +1,4 @@
+@charset "UTF-8";
 *,
 *::before,
 *::after {
@@ -106,6 +107,13 @@ h6 {
   .card {
     padding: 4rem 1rem 0 1rem;
   }
+}
+.card .error {
+  width: 100%;
+  height: 100%;
+  font-size: 3rem;
+  display: flex;
+  place-items: center;
 }
 .card .card-name-container {
   width: 53.4rem;
@@ -290,6 +298,7 @@ h6 {
 }
 
 .registration-page {
+  position: relative;
   width: 100%;
   height: 100%;
   display: flex;
@@ -297,6 +306,19 @@ h6 {
   align-items: center;
   padding-top: 10rem;
   font-family: "Inter";
+}
+.registration-page .backhome-btn {
+  position: absolute;
+  top: 3rem;
+  left: 3rem;
+  font-size: 4rem;
+  cursor: pointer;
+}
+.registration-page .backhome-btn::before {
+  content: "←";
+  position: absolute;
+  width: 2rem;
+  height: 2rem;
 }
 .registration-page .registration {
   width: min(100% - 3rem, 89.7rem);

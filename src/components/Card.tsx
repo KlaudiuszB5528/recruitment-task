@@ -5,7 +5,7 @@ import { PeopleContext } from "../context/people";
 
 const Card = () => {
   const { people, isLoading, imgUrl } = useContext(PeopleContext);
-  const currentPerson = people[people.length - 1] || {
+  const currentPerson = people.at(-1) || {
     name: "",
     birth_year: "",
     eye_color: "",

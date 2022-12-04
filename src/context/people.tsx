@@ -4,7 +4,7 @@ interface Props {
   children: React.ReactNode;
 }
 
-export interface Person {
+export interface IPerson {
   name: string;
   birth_year: string;
   eye_color: string;
@@ -12,14 +12,14 @@ export interface Person {
   vehicles: string[];
 }
 
-interface Context {
-  people: Person[];
+interface IContext {
+  people: IPerson[];
   isLoading: boolean;
   imgUrl: string;
   getData: () => void;
 }
 
-export const PeopleContext = React.createContext<Context>({
+export const PeopleContext = React.createContext<IContext>({
   people: [],
   isLoading: false,
   imgUrl: "",
@@ -27,34 +27,52 @@ export const PeopleContext = React.createContext<Context>({
 });
 
 export const PeopleContextProvider: React.FC<Props> = (props) => {
-  const [people, setPeople] = useState<Person[]>([]);
-  const [isLoading, setIsLoading] = useState(false);
-  const [imgUrl, setImgUrl] = useState("");
-  const [queryNr, setQueryNr] = useState(1);
+  const [people, setPeople] = useState<IPerson[]>([]);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [imgUrl, setImgUrl] = useState<string>("");
+  const [queryNr, setQueryNr] = useState<number>(1);
 
-  const addPerson = (person: Person) => {
-    setPeople((prevState) => [...prevState, person]);
+  const addPerson = (person: IPerson) => {
+    if (person.name !== people.at(-1)?.name) {
+      setPeople((prevState) => [...prevState, person]);
+      setQueryNr((prevNr) => prevNr + 1);
+    } else {
+      setQueryNr((prevNr) => prevNr - 1);
+      alert("Brak nowych osób do pobrania");
+    }
   };
 
   const getImg = async () => {
-    const response2 = await fetch("https://picsum.photos/534/383");
-    const { url } = response2;
-    setImgUrl(url);
+    try {
+      const response2 = await fetch("https://picsum.photos/534/383");
+      const { url } = response2;
+      setImgUrl(url);
+    } catch {
+      setImgUrl("");
+      alert("Nie udało sie załadować obrazu");
+    }
   };
 
   const getPerson = async () => {
-    const response = await fetch(`https://swapi.dev/api/people/${queryNr}`);
-    if (response.ok) {
+    try {
+      // const response = await fetch(
+      //   `https://swapi.dev/api/people/${queryNr}`
+      // );
+      const response = await fetch(
+        `https://swapi.py4e.com/api/people/${queryNr}`
+      );
       const { name, birth_year, eye_color, created, vehicles } =
         await response.json();
-      addPerson({ name, birth_year, eye_color, created, vehicles });
-      setQueryNr((prevNr) => prevNr + 1);
-      await getImg();
+      if (response.status === 200)
+        addPerson({ name, birth_year, eye_color, created, vehicles });
+    } catch {
+      alert("Nie udało się wczytać danych osoby");
     }
   };
 
   const getData = async () => {
     setIsLoading(true);
+    await getImg();
     await getPerson();
     setIsLoading(false);
   };

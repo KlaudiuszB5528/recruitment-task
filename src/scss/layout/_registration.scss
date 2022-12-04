@@ -2,11 +2,27 @@
 @use "../abstracts/mixins" as *;
 
 .registration-page {
+  position: relative;
   width: 100%;
   height: 100%;
   @include displayFlexCentered();
   padding-top: 10rem;
   font-family: "Inter";
+
+  .backhome-btn {
+    position: absolute;
+    top: 3rem;
+    left: 3rem;
+    font-size: 4rem;
+    cursor: pointer;
+
+    &::before {
+      content: "\2190";
+      position: absolute;
+      width: 2rem;
+      height: 2rem;
+    }
+  }
 
   .registration {
     width: min(100% - 3rem, 89.7rem);

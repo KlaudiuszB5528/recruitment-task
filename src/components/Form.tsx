@@ -2,6 +2,7 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import { useContext } from "react";
 import { PeopleContext } from "../context/people";
+import { useNavigate } from "react-router-dom";
 
 interface FormValues {
   login: string;
@@ -12,6 +13,7 @@ interface FormValues {
 }
 
 const Form = () => {
+  const navigate = useNavigate();
   const { people } = useContext(PeopleContext);
   const star_wars_data = [
     Object.entries(people).map(([key, person]) => {
@@ -62,6 +64,7 @@ const Form = () => {
     onSubmit: (values, { resetForm }) => {
       handlePOST(values);
       resetForm();
+      navigate("/recruitment-task");
     },
   });
 
