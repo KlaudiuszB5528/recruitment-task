@@ -37,7 +37,11 @@ export const PeopleContextProvider: React.FC<Props> = (props) => {
     setPeople((prevState) => [...prevState, person]);
     setQueryNr((prevNr) => prevNr + 1);
   };
-
+  //I used try catch block to handle errors in case of no internet connection or because of the API server being down
+  //I used async await to handle promises and to make the code more readable
+  //I used fetch to get data from the API and then I used JSON.parse to convert the response to JSON
+  //I used useEffect to make sure that the function is called only once when the component is mounted
+  //Probably without try catch I would use response.status to handle errors and make it in a more elegant way in one function with Promise.all
   const getImg = async () => {
     try {
       const response2 = await fetch("https://picsum.photos/534/383");
