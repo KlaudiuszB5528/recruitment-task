@@ -4,8 +4,7 @@ For form handling and validation I chose Formik with Yup. It's simple to use and
 You can check 
 ## [Live Demo](https://klaudiuszb5528.github.io/recruitment-task/ "recruitment-task")
 Or run it locally.
-Please note that the swapi.dev is currently down if it won't be back at the moment that You're checking the page please change the line 46 in context/people.tsx
-swapi.dev -> swapi.py4e.com
+Please note that the swapi.dev is currently down so I changed it to the working alternative swapi.py4e.com. If it's up at the moment that You're checking the page You can uncomment lines 54-56 to use swapi.dev and comment 57-59 lines at context/people.tsx
 
 
 ## Getting started
