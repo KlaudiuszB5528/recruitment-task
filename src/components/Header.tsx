@@ -5,7 +5,10 @@ const Header = () => {
     <nav className="navbar">
       <h1>Klaudiusz Biegacz</h1>
       <button className="registration-btn">
-        <Link to="/registration" className="registration-btn-text">
+        <Link
+          to="/recruitment-task/registration"
+          className="registration-btn-text"
+        >
           formularz rejestracyjny
         </Link>
       </button>

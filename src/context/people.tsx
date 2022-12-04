@@ -59,10 +59,6 @@ export const PeopleContextProvider: React.FC<Props> = (props) => {
     setIsLoading(false);
   };
 
-  const setLoading = (isLoading: boolean) => {
-    setIsLoading(isLoading);
-  };
-
   useEffect(() => {
     (async () => {
       await getData();
