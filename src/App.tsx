@@ -5,7 +5,7 @@ import { PeopleContextProvider } from "./context/people";
 
 const router = createBrowserRouter([
   {
-    path: "/recruitment-task",
+    path: "/recruitment-task/",
     element: <Home />,
   },
   {

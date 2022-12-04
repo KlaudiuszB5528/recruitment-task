@@ -12,7 +12,7 @@ const Registration = () => {
       </div>
       <div
         className="backhome-btn"
-        onClick={() => navigate("/recruitment-task")}
+        onClick={() => navigate("/recruitment-task/")}
       ></div>
     </div>
   );

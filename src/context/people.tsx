@@ -31,15 +31,11 @@ export const PeopleContextProvider: React.FC<Props> = (props) => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [imgUrl, setImgUrl] = useState<string>("");
   const [queryNr, setQueryNr] = useState<number>(1);
+  const [isLastPerson, setIsLastPerson] = useState<boolean>(false);
 
   const addPerson = (person: IPerson) => {
-    if (person.name !== people.at(-1)?.name) {
-      setPeople((prevState) => [...prevState, person]);
-      setQueryNr((prevNr) => prevNr + 1);
-    } else {
-      setQueryNr((prevNr) => prevNr - 1);
-      alert("Brak nowych osób do pobrania");
-    }
+    setPeople((prevState) => [...prevState, person]);
+    setQueryNr((prevNr) => prevNr + 1);
   };
 
   const getImg = async () => {
@@ -63,18 +59,25 @@ export const PeopleContextProvider: React.FC<Props> = (props) => {
       );
       const { name, birth_year, eye_color, created, vehicles } =
         await response.json();
-      if (response.status === 200)
+      if (response.status === 200 && name !== people.at(-1)?.name)
         addPerson({ name, birth_year, eye_color, created, vehicles });
+      else {
+        alert("Brak nowych osób do pobrania");
+        setIsLastPerson(true);
+      }
     } catch {
       alert("Nie udało się wczytać danych osoby");
     }
   };
 
   const getData = async () => {
-    setIsLoading(true);
-    await getImg();
-    await getPerson();
-    setIsLoading(false);
+    if (!isLastPerson) {
+      setIsLoading(true);
+      await getPerson();
+      await getImg();
+      setIsLoading(false);
+    }
+    if (isLastPerson) alert("To już koniec listy osób");
   };
 
   useEffect(() => {

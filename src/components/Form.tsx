@@ -4,7 +4,7 @@ import { useContext } from "react";
 import { PeopleContext } from "../context/people";
 import { useNavigate } from "react-router-dom";
 
-interface FormValues {
+interface IFormValues {
   login: string;
   password: string;
   email: string;
@@ -25,7 +25,7 @@ const Form = () => {
       };
     }),
   ];
-  const handlePOST = async (data: FormValues) => {
+  const handlePOST = async (data: IFormValues) => {
     const combinedData = { star_wars_data, data };
     await fetch(`http://example/`, {
       method: `POST`,
@@ -64,7 +64,7 @@ const Form = () => {
     onSubmit: (values, { resetForm }) => {
       handlePOST(values);
       resetForm();
-      navigate("/recruitment-task");
+      navigate("/recruitment-task/");
     },
   });
 
